@@ -36,11 +36,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(463, 54);
+            this.button1.Location = new System.Drawing.Point(746, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(47, 31);
             this.button1.TabIndex = 0;
@@ -53,7 +54,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(12, 56);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(425, 29);
+            this.richTextBox1.Size = new System.Drawing.Size(728, 29);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
@@ -62,13 +63,13 @@
             this.richTextBox2.Location = new System.Drawing.Point(12, 131);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(425, 29);
+            this.richTextBox2.Size = new System.Drawing.Size(728, 29);
             this.richTextBox2.TabIndex = 2;
             this.richTextBox2.Text = "";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(463, 131);
+            this.button2.Location = new System.Drawing.Point(746, 131);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(47, 31);
             this.button2.TabIndex = 3;
@@ -79,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(135, 31);
+            this.label1.Location = new System.Drawing.Point(321, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 22);
             this.label1.TabIndex = 4;
@@ -88,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(114, 97);
+            this.label2.Location = new System.Drawing.Point(294, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(256, 22);
             this.label2.TabIndex = 5;
@@ -96,7 +97,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(114, 212);
+            this.button3.Location = new System.Drawing.Point(294, 212);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(266, 85);
             this.button3.TabIndex = 6;
@@ -110,15 +111,19 @@
             this.richTextBox3.Location = new System.Drawing.Point(12, 303);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(497, 55);
+            this.richTextBox3.Size = new System.Drawing.Size(794, 55);
             this.richTextBox3.TabIndex = 7;
             this.richTextBox3.Text = "";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 389);
+            this.ClientSize = new System.Drawing.Size(818, 389);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
@@ -146,5 +151,6 @@
         private Label label2;
         private Button button3;
         private RichTextBox richTextBox3;
+        private OpenFileDialog openFileDialog1;
     }
 }
