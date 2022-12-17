@@ -121,6 +121,10 @@ namespace WinFormsApp1
                     //    return;
                     //}
                     var know = child.Item(0).ChildNodes;
+                    if (know.Item(6) == null)
+                    {
+                        return;
+                    }
                     var templates = know.Item(6).ChildNodes;
                     for (int i = 0; i < templates.Count; i++)
                     {
@@ -129,6 +133,11 @@ namespace WinFormsApp1
                         className = template.ChildNodes[1].InnerText;
                         //    MessageBox.Show(className);
                         var templateInside = template.ChildNodes;
+                        var check = templateInside.Item(7);
+                        if (check == null)
+                        {
+                            return;
+                        }
                         var slots = templateInside.Item(7).ChildNodes;
                         for (int j = 0; j < slots.Count; j++)
                         {
