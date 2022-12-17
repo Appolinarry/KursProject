@@ -37,7 +37,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.dataText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -120,21 +119,11 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // dataText
-            // 
-            this.dataText.Location = new System.Drawing.Point(838, 14);
-            this.dataText.Multiline = true;
-            this.dataText.Name = "dataText";
-            this.dataText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.dataText.Size = new System.Drawing.Size(377, 377);
-            this.dataText.TabIndex = 8;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1227, 389);
-            this.Controls.Add(this.dataText);
+            this.ClientSize = new System.Drawing.Size(819, 389);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
@@ -163,6 +152,5 @@
         private Button button3;
         private RichTextBox richTextBox3;
         private OpenFileDialog openFileDialog1;
-        private TextBox dataText;
     }
 }
