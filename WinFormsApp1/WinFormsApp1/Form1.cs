@@ -11,6 +11,7 @@ namespace WinFormsApp1
         bool status = false;
         List<EKB> ekb;
         List<Association> associations;
+        string umpText = "";
 
         public Form1()
         {
@@ -67,11 +68,15 @@ namespace WinFormsApp1
             richTextBox1.Clear();
             richTextBox2.Clear();
 
+            ekb.Clear();
+            associations.Clear();
+            umpText = "";
+
             parseTheFile();
-            //    convertToEKB();
+            convertToUmp();
             if (status)
             {
-                //        saveToEkb();
+                saveToUmp();
                 richTextBox3.Text = "Операция прошла успешно.";
             }
             else
@@ -80,6 +85,94 @@ namespace WinFormsApp1
             }
             
         }
+
+        private void convertToUmp()
+        {
+            var clearText = "";
+            var dirtText = "";
+            var assocStatus = false;
+            for(int i = 0; i < ekb.Count; i++)
+            {
+                assocStatus = false;
+                var temp = "";
+                var classText = $"\r\nclass {ekb[i].ClassName.Replace(" ", "")}";
+                temp += classText;
+                var startClass = "\r\n{";
+                temp += startClass;
+                for(int j = 0; j < ekb[i].Attribute.Count; j++)
+                {
+                    var param = "";
+                    if (ekb[i].Attribute[j].Item2 == "String")
+                    {
+                        param = $"\r\n{ekb[i].Attribute[j].Item1.Replace(" ", "")};";
+                        temp += param;
+                    }
+                    else
+                    {
+                        param = $"\r\n{ekb[i].Attribute[j].Item2.Replace(" ", "")} {ekb[i].Attribute[j].Item1.Replace(" ", "")};";
+                        temp += param;
+                    }
+                //    umpText += param;
+                }
+                for(int j = 0; j < associations.Count; j++)
+                {
+                    if (associations[j].SourceName == ekb[i].ClassName)
+                    {
+                        temp += $"\r\n* -- * {associations[j].TargetName.Replace(" ", "")};";
+                        assocStatus = true;
+                    }
+                }
+                if(assocStatus )
+                {
+                    dirtText += temp;
+                    dirtText += "\r\n}";
+                }
+                else
+                {
+                    clearText += temp;
+                    clearText += "\r\n}";
+                }
+                
+            }
+            umpText += clearText;
+            umpText += dirtText;
+
+            //umpText += "\r\n\r\n//$?[End_of_model]$?" +
+            //    "\r\n\r\nnamespace -;";
+
+            //Random rnd = new Random();
+            //for (int i = 0; i < ekb.Count; i++)
+            //{
+            //    var classText = $"\r\nclass {ekb[i].ClassName.Replace(" ", "")}";
+            //    umpText += classText;
+            //    var startClass = "\r\n{";
+            //    umpText += startClass;
+            //    var position = $"\r\nposition {rnd.Next(20, 100)} {rnd.Next(100, 200)} {rnd.Next(50, 200)}.{rnd.Next(500, 4000)} {rnd.Next(50, 200)}.{rnd.Next(500, 4000)};";
+            //    umpText += position;
+
+            //    for (int j = 0; j < associations.Count; j++)
+            //    {
+            //        if (associations[j].SourceName == ekb[i].ClassName)
+            //        {
+            //            umpText += $"\r\nposition.association {associations[j].SourceName.Replace(" ", "")}__{associations[j].TargetName.Replace(" ", "")} 115,52 0,43;";
+
+            //        }
+            //    }
+            //    umpText += "\r\n}";
+            //}
+
+
+            dataText.Text = umpText;
+        }
+
+        private void saveToUmp() //Метод сохранения файла
+        {
+            string path = $"{SaveWay}/file.ump";
+            System.IO.File.WriteAllText(path, umpText);
+            MessageBox.Show("Файл сохранен");
+        }
+
+
 
         private void checkToReady() //Метод проверки выбора директории и файла
         {
